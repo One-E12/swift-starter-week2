@@ -33,10 +33,9 @@ func matchingLottoNumber() {
     }
 }
 
-func makeLottoInformation(ofRound: Int) {
-    if ofRound > 0 {
-        
-        for lottoRound in 1...ofRound {
+func makeLottoInformation(of round: Int) {
+    if round > 0 {
+        for lottoRound in 1...round {
             makeNewLottoNumber()
             lottoFinalRound = lottoFinalRound + 1
             let newLottoNumberToArray = Array(newLottoNumbers)
@@ -52,11 +51,10 @@ func checkWinLottoNumbers(round: Int) {
         let convertRoundIntToString = convertRoundNumbersToArray.map { String($0) }
         let printedRound = convertRoundIntToString.joined(separator: ", ")
         print("\(round)회차의 로또 당첨 번호는 \(printedRound) 입니다.")
-    }
-    if round > lottoFinalRound {
+    } else {
         print("해당 회차의 정보가 없습니다.")
     }
 }
 
-makeLottoInformation(ofRound: 8)
+makeLottoInformation(of: 8)
 checkWinLottoNumbers(round: 9)
